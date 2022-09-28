@@ -1,10 +1,17 @@
 package com.atsistemas.calculadora.dto;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 public class ResultDTO {
-    Double result;
+    private Double result;
 
     public ResultDTO(Double result) {
         this.result = result;
+    }
+
+    // Usado por el Unit Testing
+    public ResultDTO(JsonNode result) {
+        this.result = result.get("result").asDouble();
     }
 
     public Double getResult() {
